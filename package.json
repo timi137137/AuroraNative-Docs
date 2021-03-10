@@ -1,0 +1,15 @@
+{
+    "name": "AuroraNative-Docs",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "https://github.com/timi137137/AuroraNative-Docs.git",
+    "author": "悠静萝莉 <i@mikuhl.cn>",
+    "license": "AGPLv3",
+    "devDependencies": {
+        "vuepress": "^1.8.2"
+    },
+    "scripts": {
+        "docs:dev": "vuepress dev docs",
+        "docs:build": "vuepress build docs"
+    }
+}
