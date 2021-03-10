@@ -18,6 +18,6 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           TARGET_REPO: timi137137/AuroraNative-Docs
           TARGET_BRANCH: main
-          BUILD_SCRIPT: yarn && yarn build
+          BUILD_SCRIPT: yarn && yarn docs:build
           BUILD_DIR: docs/.vuepress/dist/
           CNAME: https://auroranative.mikuy.cn
