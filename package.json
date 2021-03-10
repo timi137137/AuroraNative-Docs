@@ -6,6 +6,7 @@
     "author": "悠静萝莉 <i@mikuhl.cn>",
     "license": "AGPLv3",
     "devDependencies": {
+        "markdown-it-task-lists": "^2.1.1",
         "vuepress": "^1.8.2"
     },
     "scripts": {
