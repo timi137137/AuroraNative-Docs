@@ -26,6 +26,11 @@ module.exports = {
             '/Guide/'
         ],
         displayAllHeaders: true,
-        activeHeaderLinks: true,
+        activeHeaderLinks: true
+    },
+    markdown: {
+        extendMarkdown(md) {
+            md.use(require('markdown-it-task-lists'))
+        }
     }
 }
