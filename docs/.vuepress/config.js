@@ -18,14 +18,24 @@ module.exports = {
         nav: [
             { text: '主页', link: '/' },
             { text: '指南', link: '/Guide/' },
-            { text: 'API', link: '/API/ '},
-            { text: '事件', link: '/Event/ '},
+            { text: 'API', link: '/API/'},
+            { text: '事件', link: '/Event/'},
             { text: '更新日志', link: '/UpdateLogs/' },
         ],
-        sidebar: [
-            '/Guide/'
-        ],
-        displayAllHeaders: true,
+        sidebar: {
+            '/Guide/':[
+                '/Guide/',
+                '/Guide/QuickStart/'
+            ],
+            '/API/':[
+                '/API/'
+            ],
+            '/Event/':[
+                '/Event/'
+            ]
+        },
+        sidebarDepth: 2,
+        displayAllHeaders: false,
         activeHeaderLinks: true
     },
     markdown: {
