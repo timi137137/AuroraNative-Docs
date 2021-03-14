@@ -8,6 +8,8 @@
 <br>
 修改 修改了传参方法
 
+修改 解耦传入的服务端地址，改为可选传入地址+端口(127.0.0.1:6700)或分开传入host+port两个参数，host默认127.0.0.1
+
 修改 将API返回的JObject类型全部以字典形式返回
 
 修改 为防止QQ登录限制，正/反WebSocket连接到go-cqhttp时将会等待两秒等待初始化 [go-cqhttp #714](https://github.com/Mrs4s/go-cqhttp/issues/714)
