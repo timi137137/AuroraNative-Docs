@@ -42,5 +42,18 @@ module.exports = {
         extendMarkdown(md) {
             md.use(require('markdown-it-task-lists'))
         }
+    },
+    plugins: {
+        '@vuepress/back-to-top':true,
+        '@vuepress/pwa': {
+            serviceWorker: true,
+            updatePopup: {
+                message: "有新的内容更新啦！",
+                buttonText: "立刻刷新"
+            }
+        },
+        '@vuepress/google-analytics': {
+            'ga': 'G-VMRN966TNB'
+        }
     }
 }
