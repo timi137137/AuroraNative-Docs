@@ -18,6 +18,26 @@
 | `Checked` | bool | 是否已处理 |
 | `Actor` | long | 处理者QQ号,未处理则为0 |
 
+## Device - 设备
+
+| 字段名 | 数据类型 | 说明 |
+| - | - | - |
+| `AppID`        | long | 客户端ID                 |
+| `Name`      | string | 设备名称                 |
+| `Type`          | string  | 设备类型               |
+
+## Essences - 精华消息
+
+| 字段名 | 数据类型 | 说明 |
+| - | - | - |
+| `SenderID`        | long | 发送者QQ号                 |
+| `SenderNickName`      | string | 发送者昵称                 |
+| `SenderTime`          | string  | 消息发送时间               |
+| `OperatorID`        | long | 操作者 QQ号                 |
+| `OperatorNickName`      | string | 操作者昵称                 |
+| `OperatorTime`          | string  | 精华设置时间               |
+| `MessageID`          | string  | 消息ID               |
+
 ## File - 文件
 
 | 字段名 | 数据类型 | 说明 |
@@ -110,10 +130,10 @@
 | `Description` | string | 荣耀描述 |
 | `DayCount` | string | 持续天数 |
 
-## InvitedRequest - 邀请消息
+## InvitedRequest - 邀请信息
 
 ::: tip 提醒
-本类型基于[BaseRequest - 群系统消息基类](/API/Type/#anonymous-匿名信息)扩展，因此包含其所有属性
+本类型基于[BaseRequest - 群系统消息基类](/API/Type/#baserequest-群系统消息基类)扩展，因此包含其所有属性
 :::
 
 | 字段名 | 数据类型 | 说明 |
@@ -121,10 +141,10 @@
 | `InvitorUserID` | long | 邀请者QQ号 |
 | `InvitorNickName` | string | 邀请者昵称 |
 
-## JoinRequest - 进群
+## JoinRequest - 进群信息
 
 ::: tip 提醒
-本类型基于[BaseRequest - 群系统消息基类](/API/Type/#anonymous-匿名信息)扩展，因此包含其所有属性
+本类型基于[BaseRequest - 群系统消息基类](/API/Type/#baserequest-群系统消息基类)扩展，因此包含其所有属性
 :::
 
 | 字段名 | 数据类型 | 说明 |
@@ -132,6 +152,25 @@
 | `RequesterUserID` | long | 请求者QQ号 |
 | `RequesterNickName` | string | 请求者昵称 |
 | `Message` | string | 验证信息 |
+
+## Messages - 消息
+
+| 字段名 | 数据类型 | 说明 |
+| - | - | - |
+| `Anonymous` | [Anonymous](/API/Type/#anonymous-匿名信息) | 请求者QQ号 |
+| `Font` | int | 请求者昵称 |
+| `GroupID` | long | 群号 |
+| `Message` | string | 消息内容 |
+| `RawMessage` | string | 原始消息内容 |
+| `MessageID` | int | 消息ID |
+| `MessageSeq` | long | 消息序号 |
+| `MessageType` | string | 消息类型 |
+| `PostType` | string | 消息事件主类型 |
+| `SubType` | string | 消息事件子类型 |
+| `SelfID` | int | 收到事件的机器人QQ号 |
+| `Sender` | [Sender](/API/Type/#sender-发送者) | 发送者 |
+| `TimeStamp` | long | 消息时间戳 |
+| `UserID` | long | 发送者QQ号 |
 
 ## OCRTextDetection - OCR结果信息
 
@@ -152,3 +191,17 @@
 | `MessageSent`     | ulong | 发送信息总数     |
 | `DisconnectsCount` | uint | TCP 链接断开次数 |
 | `LostsCount`       | uint | 账号掉线次数     |
+
+## Sender - 发送者
+
+| 字段名 | 数据类型 | 说明 |
+| - | - | - |
+| `UserID`  | long | 发送者QQ号 |
+| `NickName`      | string | 昵称 |
+| `Sex`      | string | 性别   |
+| `Age` | int | 年龄     |
+| `Card`     | string | 群名片 / 备注     |
+| `Area` | string | 地区 |
+| `Level`       | string | 成员等级     |
+| `Role`       | string | 角色     |
+| `Title`       | string | 专属头衔     |
