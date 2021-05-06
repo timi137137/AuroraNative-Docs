@@ -564,7 +564,7 @@ AnonymousFlag 与 Anonymous 任选其一填入即可
 ::: warning 注意
 在不提供 `Folder` 参数的情况下默认上传到根目录
 
-只能上传本地文件, 需要上传 `HTTP` 文件的话请先调用 [*下载*](#下载文件到缓存目录)下载
+只能上传本地文件, 需要上传 `HTTP` 文件的话请先调用 [*下载文件到缓存目录*](/API/#下载文件到缓存目录)下载
 :::
 
 **响应数据**
@@ -572,6 +572,24 @@ AnonymousFlag 与 Anonymous 任选其一填入即可
 ::: tip 无响应
 本接口无响应数据
 :::
+
+## 获取群 @全体成员 剩余次数
+
+方法名: `GetGroupAtAllRemain`
+
+**参数**
+
+| 字段名 | 数据类型  | 默认值 | 说明 |
+| - | - | - | - |
+| `GroupID` | long | - | 群号 |
+
+**响应数据**
+
+| 字段名 | 数据类型 | 说明 |
+| - | - | - |
+| `CanAtAll` | bool  是否可以 @全体成员 |
+| `GroupAdminAtAllCount` | short | 群内所有管理当天剩余 @全体成员 次数 |
+| `BotAtAllCount`   | short | Bot 当天剩余 @全体成员 次数      |
 
 ## 获取群系统消息
 
@@ -586,8 +604,8 @@ AnonymousFlag 与 Anonymous 任选其一填入即可
 
 | 字段名 | 数据类型 | 说明 |
 | - | - | - |
-| `InvitedRequest` | List<[InvitedRequest](/API/Type/#invitedrequest-邀请消息)> | 邀请消息列表 |
-| `JoinRequest` | List<[JoinRequest](/API/Type/#joinrequest-进群)> | 进群消息列表 |
+| `InvitedRequest` | List<[InvitedRequest](/API/Type/#invitedrequest-邀请信息)> | 邀请消息列表 |
+| `JoinRequest` | List<[JoinRequest](/API/Type/#joinrequest-进群信息)> | 进群消息列表 |
 
 ## 获取群根目录文件列表
 
@@ -623,6 +641,88 @@ AnonymousFlag 与 Anonymous 任选其一填入即可
 | - | - | - |
 | `Files` | List<[File](/API/Type/#file-文件)> | 文件列表 |
 | `Folder` | List<[Folder](/API/Type/#folder-文件夹)> | 文件夹列表 |
+
+## 获取群消息历史记录
+
+方法名: `GetGroupMsgHistory`
+
+**参数**
+
+| 字段名 | 数据类型  | 默认值 | 说明 |
+| - | - | - | - |
+| `GroupID` | long | - | 群号 |
+| `MessageSeq` | long | 0 | 消息序号，可以通过[*获取消息*](/API/#获取消息/)获得,0为获取最新消息 |
+
+**响应数据**
+
+| 字段名 | 数据类型 | 说明 |
+| - | - | - |
+| `Messages` | List<[Messages](/API/Type/#messages-消息)> | 消息列表，从消息序号开始的19条消息 |
+
+## 获取精华消息列表
+
+方法名: `GetEssenceMsgList`
+
+**参数**
+
+| 字段名 | 数据类型  | 默认值 | 说明 |
+| - | - | - | - |
+| `GroupID` | long | - | 群号 |
+
+**响应数据**
+
+| 字段名 | 数据类型 | 说明 |
+| - | - | - |
+| `Essences` | List<[Essences](/API/Type/#essences-精华消息)> | 文件列表 |
+
+## 设置精华消息
+
+方法名: `SetEssenceMsg`
+
+**参数**
+
+| 字段名 | 数据类型  | 默认值 | 说明 |
+| - | - | - | - |
+| `MessageID` | string | - | 消息ID |
+
+**响应数据**
+
+::: tip 无响应
+本接口无响应数据
+:::
+
+## 移除精华消息
+
+方法名: `DelEssenceMsg`
+
+**参数**
+
+| 字段名 | 数据类型  | 默认值 | 说明 |
+| - | - | - | - |
+| `MessageID` | string | - | 消息ID |
+
+**响应数据**
+
+::: tip 无响应
+本接口无响应数据
+:::
+
+## 发送群公告
+
+方法名: `SendGroupNotice`
+
+**参数**
+
+| 字段名 | 数据类型  | 默认值 | 说明 |
+| - | - | - | - |
+| `GroupID` | long | - | 群号 |
+| `Content`  | string | - | 公告内容 |
+
+**响应数据**
+
+::: tip 无响应
+本接口无响应数据
+:::
 
 ## 获取版本信息
 
@@ -700,6 +800,21 @@ AnonymousFlag 与 Anonymous 任选其一填入即可
 | - | - | - |
 | `Yes` | bool | 是/否 |
 
+## 检查链接安全性
+
+方法名: `CheckURLSafely`
+
+**参数**
+| 字段名 | 数据类型  | 默认值 | 说明 |
+| - | - | - | - |
+| `URL` | string | - | 待检测的URL |
+
+**响应数据**
+
+| 字段名 | 数据类型 | 说明 |
+| - | - | - |
+| `Level` | int | 安全等级,  1: 安全 2: 未知 3: 危险 |
+
 ## 重启 go-cqhttp - 请慎用!
 
 方法名: `SetRestart`
@@ -760,3 +875,85 @@ AnonymousFlag 与 Anonymous 任选其一填入即可
 | - | - | - |
 | `Texts` | List<[OCRTextDetection](/API/Type/#ocrtextdetection-ocr结果信息)> | OCR结果 |
 | `Language` | string | 语言 |
+
+## 获取VIP信息
+
+方法名: `GetVIPInfo`
+
+**参数**
+
+| 字段名 | 数据类型  | 默认值 | 说明 |
+| - | - | - | - |
+| `UserID` | long | - | QQ号 |
+
+**响应数据**
+
+| 字段名 | 数据类型 | 说明 |
+| - | - | - |
+| `UserID`          | long   | QQ 号       |
+| `NickName`         | string  | 用户昵称    |
+| `Level`            | long   | QQ 等级     |
+| `LevelSpeed`      | double | 等级加速度  |
+| `VipLevel`        | string  | 会员等级    |
+| `VipGrowthSpeed` | long   | 会员成长速度 |
+| `VipGrowthTotal` | long   | 会员成长总值 |
+
+## 重载事件过滤器
+
+方法名: `ReloadEventFilter`
+
+**参数**
+
+::: tip 无参数
+本接口无需参数
+:::
+
+**响应数据**
+
+::: tip 无响应
+本接口无响应数据
+:::
+
+## 下载文件到缓存目录
+
+方法名: `DownloadFile`
+
+::: tip 小贴士
+通过这个接口下载的文件能直接放入CQ码作为图片或语音发送
+
+调用后会阻塞直到下载完成后才会返回数据，请注意下载大文件时的超时问题
+:::
+
+**参数**
+
+| 字段名 | 数据类型  | 默认值 | 说明 |
+| - | - | - | - |
+| `URL` | string  | - | 链接地址 |
+| `ThreadCount` | int32  | - | 下载线程数 |
+| `Headers` | string[]  | - | 自定义请求头 |
+
+::: warning 注意
+`Headers`的每一个头部格式应为"xxx=xxx"
+:::
+
+**响应数据**
+
+| 字段名 | 数据类型 | 说明 |
+| - | - | - |
+| `FilePath`| string | 下载文件的*绝对路径* |
+
+## 获取当前账号在线客户端列表
+
+方法名: `GetOnlineClients`
+
+**参数**
+
+| 字段名 | 数据类型  | 默认值 | 说明 |
+| - | - | - | - |
+| `Cache` | bool  | - | 是否无视缓存  |
+
+**响应数据**
+
+| 字段名 | 数据类型 | 说明 |
+| - | - | - |
+| `Files` | List<[Device](/API/Type/#device-设备)> | 在线设备列表 |
