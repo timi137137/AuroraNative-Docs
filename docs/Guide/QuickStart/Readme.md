@@ -50,7 +50,7 @@ namespace TestBot
 }
 ```
 
-随后打开 Program.cs 添加以下代码，本文使用了正向WebSocket。因此需要传入完整的IP地址带端口号，默认值是127.0.0.1:6700 如果没变可以不传。
+随后打开 Program.cs 添加以下代码，本文使用了正向WebSocket。并且 go-cqhttp 端并没有修改默认配置，默认值是127.0.0.1:6700 如果没变可以不传。
 ::: tip 小提示
 本框架是支持反向WebSocket的，只要将下面的Client转为Server后，传入port参数即可(Client是传入host参数)
 :::
@@ -58,9 +58,10 @@ namespace TestBot
 ```cs
 using AuroraNative.WebSockets;
 
-Client client = new Client();
-client.host = "127.0.0.1:6700";
-client.EventHook = new EventHook();
+Client client = new Client(new Events()) {
+                host = "127.0.0.1",
+                port = 6700
+            };
 client.Create();
 ```
 
@@ -77,6 +78,10 @@ client.Create();
 4.编写事件代码
 
 打开到刚刚创建好的 EventHook 类，对照[事件列表](/Event/)重写你需要的方法。本文以群复读机为例，因此重写群消息事件。
+::: tip 小提示
+本框架推荐使用Visual Studio的自动补全，这样只需要知道方法名就可以自动补全整个方法，可以不需要去寻找方法类型
+:::
+
 
 ```cs
 using AuroraNative.EventArgs;
@@ -87,19 +92,10 @@ public override void GroupMessage(GroupMessageArgs e)
 }
 ```
 
-然后你会发现，没办法调用api发送信息。诶，别担心，打开 Program.cs 声明一个公开静态的Api。并在Create方法调用后边赋值即可。
-
-``` cs
-public static Api api;
-
-//在 client.Create() 后面添加赋值，否则会报错
-api = new Api(client);
-```
-
-回到 EventHook 类,在事件中添加以下代码
+随后在事件中添加以下代码即可调用API复读，你也可以查看[API列表](/API/)来调用更多的API
 
 ```cs
-Program.api.SendGroupMessage(e.GroupID,e.Message);
+API.CurrentApi.SendGroupMessage(e.GroupID,e.Message);
 ```
 
 ---
@@ -113,21 +109,19 @@ Program.api.SendGroupMessage(e.GroupID,e.Message);
 
 ```cs
 using System;
-using AuroraNative;
 using AuroraNative.WebSockets;
 
 namespace TestBot
 {
     class Program
     {
-        public static Api api;
         static void Main(string[] args)
         {
-            Client client = new Client();
-            client.host = "127.0.0.1:6700";
-            client.EventHook = new EventHook();
+            Client client = new Client(new Events()) {
+                            host = "127.0.0.1",
+                            port = 6700
+                        };
             client.Create();
-            api = new Api(client);
             Console.ReadKey();
         }
     }
@@ -147,7 +141,7 @@ namespace TestBot
     {
         public override void GroupMessage(GroupMessageArgs e)
         {
-            Program.api.SendGroupMessage(e.GroupID,e.Message);
+            API.CurrentApi.SendGroupMessage(e.GroupID,e.Message);
         }
     }
 }
