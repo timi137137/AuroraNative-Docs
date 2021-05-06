@@ -28,7 +28,8 @@ module.exports = {
                 '/Guide/QuickStart/'
             ],
             '/API/':[
-                '/API/'
+                '/API/',
+                '/API/Type/'
             ],
             '/Event/':[
                 '/Event/'
