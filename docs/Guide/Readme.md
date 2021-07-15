@@ -11,7 +11,7 @@
 :::
 
 ![](https://img.shields.io/badge/OneBot-v11-blue?style=flat-square)
-![](https://img.shields.io/badge/go--cqhttp-v0.9.40--fix5-blueviolet?style=flat-square)
+![](https://img.shields.io/badge/go--cqhttp-v1.0.0--beta4-blueviolet?style=flat-square)
 ![](https://img.shields.io/nuget/vpre/AuroraNative?style=flat-square)
 
 ## go-cqhttp - 来自官方文档

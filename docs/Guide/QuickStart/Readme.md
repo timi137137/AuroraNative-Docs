@@ -58,7 +58,7 @@ namespace TestBot
 ```cs
 using AuroraNative.WebSockets;
 
-Client client = new Client(new Events()) {
+Client client = new Client(new EventHook()) {
                 host = "127.0.0.1",
                 port = 6700
             };

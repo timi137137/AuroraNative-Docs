@@ -32,7 +32,11 @@ module.exports = {
                 '/API/Type/'
             ],
             '/Event/':[
-                '/Event/'
+                '/Event/',
+                '/Event/MetaEvent/',
+                '/Event/MessageEvent/',
+                '/Event/RequestEvent/',
+                '/Event/NoticeEvent/',
             ]
         },
         sidebarDepth: 2,
