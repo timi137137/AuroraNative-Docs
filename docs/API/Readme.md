@@ -343,6 +343,10 @@ AnonymousFlag 与 Anonymous 任选其一填入即可
 | `UserID` | long | QQ 号 |
 | `NickName` | string | QQ 昵称 |
 
+::: warning 注意
+本框架暂时不支持获取企点账号信息
+:::
+
 ## 获取陌生人信息
 
 方法名: `GetStrangerInfo`
@@ -379,6 +383,21 @@ AnonymousFlag 与 Anonymous 任选其一填入即可
 | ----- | ------- | --- |
 | `Friends` | List<[Friends](/API/Type/#friends-好友)> | 好友列表 |
 
+## 删除好友
+
+方法名: `DeleteFriend`
+
+**参数**
+
+| 字段名 | 数据类型  | 默认值 | 说明 |
+| - | - | - | - |
+| `UserID` | long | - | 好友QQ号 |
+
+**响应数据**
+
+::: tip 无响应
+本接口无响应数据
+:::
 
 ## 获取群信息
 
@@ -957,3 +976,36 @@ AnonymousFlag 与 Anonymous 任选其一填入即可
 | 字段名 | 数据类型 | 说明 |
 | - | - | - |
 | `Files` | List<[Device](/API/Type/#device-设备)> | 在线设备列表 |
+
+## 获取在线机型
+
+方法名: `GetModels`
+
+**参数**
+
+| 字段名 | 数据类型  | 默认值 | 说明 |
+| - | - | - | - |
+| `ModelName` | string  | - | 机型名称  |
+
+**响应数据**
+
+| 字段名 | 数据类型 | 说明 |
+| - | - | - |
+| `Models` | List<[Models](/API/Type/#model-机型)> | 在线机型列表 |
+
+## 设置在线机型
+
+方法名: `SetModel`
+
+**参数**
+
+| 字段名 | 数据类型  | 默认值 | 说明 |
+| - | - | - | - |
+| `ModelName` | string  | - | 机型名称  |
+| `ShowModelName` | string  | - | 在线机型名称  |
+
+**响应数据**
+
+::: tip 无响应
+本接口无响应数据
+:::
