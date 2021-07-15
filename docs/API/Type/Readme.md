@@ -93,6 +93,14 @@
 | `MemberCount` | int | 成员数 |
 | `MaxMemberCount` | int | 最大成员数(群容量) |
 
+## GroupNoticeArgs - 群通知事件基类
+
+| 字段名 | 数据类型 | 说明 |
+| - | - | - |
+| `GroupID` | long | 群号 |
+| `SubType` | string | 事件子类型 |
+| `OperatorID` | long | 操作者QQ |
+
 ## GroupMember - 群成员
 
 | 字段名 | 数据类型 | 说明 |
@@ -180,6 +188,13 @@
 | `Confidence` | int | 置信度 |
 | `Coordinates` | Vector2 | 坐标 |
 
+## PokeEventArgs - 戳一戳通知事件基类
+
+| 字段名 | 数据类型 | 说明 |
+| - | - | - |
+| `SubType` | string | 提示类型 |
+| `TargetID` | long | 被戳QQ |
+
 ## RunningStatistics - 运行统计
 
 | 字段名 | 数据类型 | 说明 |
@@ -205,3 +220,17 @@
 | `Level`       | string | 成员等级     |
 | `Role`       | string | 角色     |
 | `Title`       | string | 专属头衔     |
+
+## TempSource - 临时会话来源
+
+| 类型 | 来源 |
+| - | - |
+| 0 | 群聊 |
+| 1 | QQ咨询 |
+| 2 | 查找 |
+| 3 | QQ电影 |
+| 4 | 热聊 |
+| 6 | 验证消息 |
+| 7 | 多人聊天 |
+| 8 | 约会 |
+| 9 | 通讯录 |
