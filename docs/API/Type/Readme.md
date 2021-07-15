@@ -180,6 +180,13 @@
 | `TimeStamp` | long | 消息时间戳 |
 | `UserID` | long | 发送者QQ号 |
 
+## Model - 机型
+
+| 字段名 | 数据类型 | 说明 |
+| - | - | - |
+| `Name` | string | 机型名称 |
+| `IsPay` | bool | 是否需要付费 |
+
 ## OCRTextDetection - OCR结果信息
 
 | 字段名 | 数据类型 | 说明 |
