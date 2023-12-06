@@ -7,7 +7,7 @@
 并且本框架可以支持.NET 5/.NET Framework 4.6.1以上使用，使用.NET 5可以快捷开发一个跨平台的机器人。
 
 ::: warning 注意
-目前还处于快速迭代的 Alpha 阶段，每次更新可能都将导致不可兼容的后果。建议定时关注更新！
+由于go-cqhttp 项目遭到不可抗力因素，本项目现已停止更新并归档，详情请看 —> https://github.com/Mrs4s/go-cqhttp/issues/2471
 :::
 
 ![](https://img.shields.io/badge/OneBot-v11-blue?style=flat-square)
